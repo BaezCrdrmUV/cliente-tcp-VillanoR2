@@ -17,7 +17,7 @@ namespace SocketCom
             if(start == true)
             {
                 listener.Start();
-                Console.WriteLine("Servidor iniciado en la dirección {0}:{1}",
+                Console.WriteLine("Servidor iniciado en la direccion {0}:{1}",
                     address.MapToIPv4().ToString(), puerto.ToString());
                 acceptFlag = true;
             }
@@ -40,7 +40,7 @@ namespace SocketCom
 
                         while(msg != null && !msg.StartsWith("bye"))
                         {
-                            byte[] data = Encoding.UTF8.GetBytes("Envía datos. Envía \"bye\" para terminar");
+                            byte[] data = Encoding.UTF8.GetBytes("Envia datos. Envia \"bye\" para terminar");
                             client.Send(data);
 
                             byte[] buffer = new byte[1024];
@@ -49,7 +49,7 @@ namespace SocketCom
                             msg = Encoding.ASCII.GetString(buffer);
                             Console.WriteLine(msg);
                         }
-                        Console.WriteLine("Cerrando conexión");
+                        Console.WriteLine("Cerrando conexion");
                         client.Dispose();
                     }
                 }
